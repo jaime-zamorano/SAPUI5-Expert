@@ -1,7 +1,27 @@
-<mvc:View xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc" >
-<m:List headerText="{i18n>InvoicesListTitle}" class="sapUiSmallMargin" width="auto" items="{invoices>/Invoices}">
+<mvc:View controllerName="logaligroup.SAPUI5.controller.InvoicesList" xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc" >
+<m:List id="invoceList" headerText="{i18n>InvoicesListTitle}" 
+class="sapUiSmallMargin" width="auto" 
+items="{ path:'invoices>/Invoices',
+         sorter: {path: 'ShipperName' , group: true}
+         
+         }">
+<m:headerToolbar>
+<m:Toolbar >
+<m:Title text="{i18n>InvoicesListTitle}"/>
+<m:ToolbarSpacer />
+<m:SearchField width="50%" search=".onFilterInvoices"/>
+</m:Toolbar>
+</m:headerToolbar>
 <m:items>
-<m:ObjectListItem title="{invoices>Quantity} x {invoices>ProductName}"></m:ObjectListItem>
+<m:ObjectListItem title="{invoices>Quantity} x {invoices>ProductName}"
+                  number="{parts : [{path : 'invoices>ExtendedPrice'}]}"
+                  numberUnit="{currency>/usd}"
+                  numberState="{= ${invoices>ExtendedPrice} > 50 ? 'Success' : 'Error' }">
+                  <m:firstStatus>
+                  <m:ObjectStatus text="{path:'invoices>Status',
+                                         formatter: '.formatter.invoicesStatus'}"></m:ObjectStatus>
+                  </m:firstStatus>
+                  </m:ObjectListItem>
 </m:items>
 </m:List>
 </mvc:View>
