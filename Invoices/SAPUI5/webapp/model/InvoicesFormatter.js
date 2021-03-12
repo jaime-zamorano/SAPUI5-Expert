@@ -1,22 +1,19 @@
 //@ts-nocheck
-sap.ui.define([
+sap.ui.define([],
 
-]
-    , function () {
+    function () {
 
         return {
-            invoicesStatus: function (sStatus) {
+            invoiceStatus: function(sStatus) {
+
                 const resourceBundle = this.getView().getModel("i18n").getResourceBundle();
 
                 switch (sStatus) {
-                    case 'A': return resourceBundle.getText("InvoicesStatusA");
-                    case 'B': return resourceBundle.getText("InvoicesStatusB");
-                    case 'C': return resourceBundle.getText("InvoicesStatusC");
+                    case 'A': return resourceBundle.getText("invoiceStatusA");
+                    case 'B': return resourceBundle.getText("invoiceStatusB");
+                    case 'C': return resourceBundle.getText("invoiceStatusC");
                     default: return sStatus;
-
                 }
-
             }
         }
-
     });
