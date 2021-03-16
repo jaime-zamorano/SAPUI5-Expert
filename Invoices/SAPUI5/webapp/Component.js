@@ -14,10 +14,10 @@ sap.ui.define([
     function (UIComponent, Models, ResourceModel, HelloDialog) {
         return UIComponent.extend("logaligroup.SOAPUI5.Component", {
 
-        metadata: {
-            manifest : "json"
+            metadata: {
+                manifest: "json"
 
-        },
+            },
 
 
             init: function () {
@@ -29,16 +29,21 @@ sap.ui.define([
 
                 // set i18n model on the view
 
-                var i18nModel = new ResourceModel({ bundleName: "logaligroup/SAPUI5/i18n/i18n" });
-                this.setModel(i18nModel, "i18n");
+              //  var i18nModel = new ResourceModel({ bundleName: "logaligroup/SAPUI5/i18n/i18n" });
+               // this.setModel(i18nModel, "i18n");
+
                 this._helloDialog = new HelloDialog(this.getRootControl());
+
+                //inicia con enrutamiento
+                this.getRouter().initialize();
+
             },
-            exit : function(){
+            exit: function () {
                 this._helloDialog.destroy();
                 delete this._helloDialog;
             },
 
-            openHelloDialog : function(){
+            openHelloDialog: function () {
                 this._helloDialog.open();
             }
         });

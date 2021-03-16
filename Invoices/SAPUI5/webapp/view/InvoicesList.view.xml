@@ -21,7 +21,9 @@ items="{ path:'northwind>/Invoices',
                                           showMeasure : false
                                       }}"
                   numberUnit="{currency>/usd}"
-                  numberState="{= ${northwind>ExtendedPrice} > 50 ? 'Success' : 'Error' }">
+                  numberState="{= ${northwind>ExtendedPrice} > 50 ? 'Success' : 'Error' }"
+                  type="Navigation"
+                  press="navigateToDetails">
 
                   </m:ObjectListItem>
 </m:items>
