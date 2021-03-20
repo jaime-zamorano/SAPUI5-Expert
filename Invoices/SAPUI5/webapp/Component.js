@@ -12,7 +12,7 @@ sap.ui.define([
      * @param {typeof sap.ui.model.resource.ResourceModel} ResourceModel
      */
     function (UIComponent, Models, ResourceModel, HelloDialog) {
-        return UIComponent.extend("logaligroup.SOAPUI5.Component", {
+        return UIComponent.extend("logaligroup.SAPUI5.Component", {
 
             metadata: {
                 manifest: "json"

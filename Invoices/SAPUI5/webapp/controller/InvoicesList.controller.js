@@ -51,6 +51,8 @@ sap.ui.define([
                     invoicePath: window.encodeURIComponent(oItem.getBindingContext("northwind").getPath().substr(1))
                 });
 
+
+
             }
 
         });
