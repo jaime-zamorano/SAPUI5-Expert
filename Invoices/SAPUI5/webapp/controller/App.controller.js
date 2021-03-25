@@ -15,7 +15,7 @@ sap.ui.define([
         return Controller.extend("logaligroup.SAPUI5.controller.App", {
 
             oInit: function () {
-
+                this.getView().addStyleClass(this.getOwnerComponent().getContentDensityClass());
 
             },
 
